@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="contact"
+            type="com.omlotecommerce.databindingexample.two_way_binding.Contact" />
+
+        <variable
+            name="clickHandler"
+            type="com.omlotecommerce.databindingexample.two_way_binding.ContactsActivity.ContactsActivityClickHandlers" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        tools:context=".two_way_binding.ContactsActivity">
+
+        <TextView
+            android:id="@+id/text_view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Contact Name"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edit_text_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_name"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Name"
+            android:inputType="textPersonName"
+            android:text="@={contact.name}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_view_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_text_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Contact Email"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edit_text_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_email"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Email"
+            android:inputType="textEmailAddress"
+            android:text="@={contact.email}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_view_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_text_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Country"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edit_text_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_country"
+            android:layout_marginTop="10dp"
+            android:hint="Enter Country"
+            android:inputType="textPersonName"
+            android:text="@={contact.country}"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickHandler::onSubmitButtonClicked}"
+            android:layout_below="@+id/edit_text_country"
+            android:layout_margin="10dp"
+            android:text="Submit" />
+
+    </RelativeLayout>
+</layout>

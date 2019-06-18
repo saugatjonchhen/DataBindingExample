@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="student"
+            type="com.omlotecommerce.databindingexample.simple_data_binding.Student" />
+
+        <variable
+            name="clickHandler"
+            type="com.omlotecommerce.databindingexample.simple_data_binding.MainActivity.MainActivityClickHandlers" />
+
+    </data>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".simple_data_binding.MainActivity">
+
+        <TextView
+            android:id="@+id/text_view_student_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{student.studentEmail}"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_view_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_student_email"
+            android:text="@{student.studentName}"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_enroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_student_name"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{clickHandler::onEnrollButtonClicked}"
+            android:text="Enroll" />
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_enroll"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{clickHandler::onCancelButtonClicked}"
+            android:text="Cancel" />
+
+        <include
+            layout="@layout/content_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_cancel"
+            bind:student="@{student}" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{clickHandler::onFABClicked}"
+            android:src="@android:drawable/ic_dialog_email"
+            android:layout_margin="20dp"
+            android:layout_gravity="end|bottom" />
+
+    </RelativeLayout>
+
+</layout>

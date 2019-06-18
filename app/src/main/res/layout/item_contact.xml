@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="contact"
+            type="com.omlotecommerce.databindingexample.two_way_binding.Contact" />
+
+        <variable
+            name="clickHandler"
+            type="com.omlotecommerce.databindingexample.adapter.ContactsDataAdapter.ContactDataClickHandler" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="left"
+            android:onClick="@{clickHandler.onViewClicked}"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_view_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contact.name}"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/text_view_contact_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contact.email}"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/text_view_contact_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contact.country}"
+                android:textSize="26sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>
